@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     /* Import Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
     /* Reset Style */
     *,*::after,*::before{
@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         background-color:${({ theme }) => theme.bodyBackground};
         color:${({ theme }) => theme.text};
         transition:all .4s;
+        
     }
 `;
 
