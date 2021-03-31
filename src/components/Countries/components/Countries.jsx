@@ -19,11 +19,7 @@ const Countries = ({ fetchCountries, loading, countries }) => {
         )}
         {countries.length > 0 &&
           countries.map((country, i) => (
-            <CountryCard
-              to={`/details/${country.name}`}
-              key={i.toString()}
-              {...country}
-            />
+            <CountryCard key={i.toString()} {...country} />
           ))}
       </CountriesContainer>
     </Container>

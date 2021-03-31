@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DropDownContainer,
   DropDownTitle,
@@ -6,13 +6,20 @@ import {
   DropDownMenu,
   DropDownItem,
 } from "./DropDown.styles";
-const DropDown = () => {
+const DropDown = ({ fetchCountriesByRegion }) => {
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const [dropDownTitle, setDropDownTitle] = useState("");
 
   const hamdleToggleDropDown = () => {
     setToggleDropDown(!toggleDropDown);
   };
+
+  useEffect(() => {
+    if (dropDownTitle) {
+      console.log(dropDownTitle);
+      fetchCountriesByRegion(dropDownTitle.toLocaleLowerCase());
+    }
+  }, [dropDownTitle]);
   return (
     <DropDownContainer onClick={hamdleToggleDropDown}>
       <DropDownTitle>{dropDownTitle || "Filter By Region"}</DropDownTitle>
@@ -21,8 +28,8 @@ const DropDown = () => {
         <DropDownItem onClick={() => setDropDownTitle("Africa")}>
           Africa
         </DropDownItem>
-        <DropDownItem onClick={() => setDropDownTitle("America")}>
-          America
+        <DropDownItem onClick={() => setDropDownTitle("Americas")}>
+          Americas
         </DropDownItem>
         <DropDownItem onClick={() => setDropDownTitle("Asia")}>
           Asia

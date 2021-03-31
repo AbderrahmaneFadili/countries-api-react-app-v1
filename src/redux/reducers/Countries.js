@@ -5,11 +5,14 @@ import {
   FETCH_COUNTRIES_BY_NAME_BEGIN,
   FETCH_COUNTRIES_BY_NAME_FAILURE,
   FETCH_COUNTRIES_BY_NAME_SUCCESS,
+  FETCH_COUNTRIES_BY_REGION_FAILURE,
+  FETCH_COUNTRIES_BY_REGION_BEGIN,
+  FETCH_COUNTRIES_BY_REGION_SUCCESS,
 } from "../types/Countries";
 
 const initialState = {
   countries: [],
-  errro: null,
+  error: null,
   loading: false,
 };
 
@@ -20,7 +23,7 @@ const countriesReducer = (state = initialState, action) => {
         ...state,
         loading: true,
         countries: [],
-        errro: null,
+        error: null,
       };
 
     case FETCH_COUNTRIES_SUCCESS:
@@ -28,7 +31,7 @@ const countriesReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         countries: action.payload,
-        errro: null,
+        error: null,
       };
 
     case FETCH_COUNTRIES_FAILURE:
@@ -36,29 +39,45 @@ const countriesReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         countries: [],
-        errro: action.payload,
+        error: action.payload,
       };
     case FETCH_COUNTRIES_BY_NAME_BEGIN:
       return {
         ...state,
         loading: true,
         countries: [],
-        errro: null,
+        error: null,
       };
     case FETCH_COUNTRIES_BY_NAME_SUCCESS:
       return {
         ...state,
         loading: false,
         countries: action.payload,
-        errro: null,
+        error: null,
       };
     case FETCH_COUNTRIES_BY_NAME_FAILURE:
       return {
         ...state,
         loading: false,
         countries: [],
-        errro: action.payload,
+        error: action.payload,
       };
+    case FETCH_COUNTRIES_BY_REGION_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        countries: [],
+        erro: null,
+      };
+    case FETCH_COUNTRIES_BY_REGION_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        countries: action.payload,
+        error: null,
+      };
+    case FETCH_COUNTRIES_BY_REGION_FAILURE:
+      return { ...state, loading: false, countries: [], error: action.payload };
     default:
       return state;
   }
