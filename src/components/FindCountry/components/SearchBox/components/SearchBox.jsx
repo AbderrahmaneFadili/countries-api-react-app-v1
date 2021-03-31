@@ -5,11 +5,23 @@ import {
   SearchIcon,
 } from "./SearchBox.styles";
 
-const SearchBox = () => {
+const SearchBox = ({ fetchByName, fetchCountries }) => {
+  const handleInputValue = (event) => {
+    if (event.target.value !== "") {
+      fetchByName(event.target.value);
+    } else {
+      fetchCountries();
+    }
+  };
+
   return (
     <SearchBoxContainer>
       <SearchIcon />
-      <SearchBoxInput type="text" placeholder="Search for a country..." />
+      <SearchBoxInput
+        onChange={handleInputValue}
+        type="text"
+        placeholder="Search for a country..."
+      />
     </SearchBoxContainer>
   );
 };

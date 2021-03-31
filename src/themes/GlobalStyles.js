@@ -2,20 +2,22 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
     /* Reset Style */
     *,*::after,*::before{
         padding:0;
         margin:0;
         box-sizing:border-box;
+        font-family:'Nunito Sans', sans-serif;
+        
     }
 
     /* Adding global HTML Styles */
     html{
         scroll-behavior:smooth;
-        font-size:${({ theme }) => theme.homePageFontSize};
-        font-family:${({ theme }) => theme.fontFamily}
+        font-size:14px;
+        
     }
 
 
@@ -23,7 +25,6 @@ const GlobalStyle = createGlobalStyle`
         background-color:${({ theme }) => theme.bodyBackground};
         color:${({ theme }) => theme.text};
         transition:all .4s;
-        
     }
 `;
 

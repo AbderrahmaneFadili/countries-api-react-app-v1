@@ -11,11 +11,11 @@ import {
 
 import numeral from "numeral";
 
-const CountryCard = ({ name, alpha2Code, population, region, capital }) => {
+const CountryCard = ({ to, name, alpha2Code, population, region, capital }) => {
   const formatedPopulation = numeral(population).format("0,0");
 
   return (
-    <ContryCardConatiner>
+    <ContryCardConatiner to={to}>
       <CountryImage
         src={`https://raw.githubusercontent.com/hampusborgos/country-flags/master/png1000px/${alpha2Code.toLowerCase()}.png`}
         alt="Flag"

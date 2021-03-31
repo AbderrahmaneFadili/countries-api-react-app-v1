@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 //Country Card Container
-export const ContryCardConatiner = styled.div`
+export const ContryCardConatiner = styled(Link)`
   width: 80%;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.elements};
@@ -9,6 +10,9 @@ export const ContryCardConatiner = styled.div`
   box-shadow: 0px 1px 8px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.4rem;
   margin-bottom: 4rem;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 
   /* Media for Tablette */
   @media screen and (min-width: 662px) {
