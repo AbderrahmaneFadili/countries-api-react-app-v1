@@ -1,13 +1,12 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import BackButton from "../../components/BackButton/BackButton";
+import { Container } from "../../themes/GlobalStyles";
 
 const Details = () => {
-  const history = useHistory();
   return (
-    <div>
-      <h1>Details</h1>
-      <Link onClick={() => history.goBack()}>Go Back</Link>
-    </div>
+    <Container>
+      <BackButton />
+    </Container>
   );
 };
 

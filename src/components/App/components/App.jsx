@@ -11,15 +11,13 @@ const App = ({ theme }) => {
   return (
     <Router>
       <ThemeProvider theme={theme === "light" ? light : dark}>
-        <React.Fragment>
-          <GlobalStyle />
-          <Header />
-          <Switch>
-            <Route exact path="/details/:id" component={Details} />
-            <Route exact path="/" component={Home} />
-            <Route component={() => <h1>page not found (404)</h1>} />
-          </Switch>
-        </React.Fragment>
+        <GlobalStyle />
+        <Header />
+        <Switch>
+          <Route exact path="/details/:id" component={Details} />
+          <Route exact path="/" component={Home} />
+          <Route component={() => <h1>page not found (404)</h1>} />
+        </Switch>
       </ThemeProvider>
     </Router>
   );
