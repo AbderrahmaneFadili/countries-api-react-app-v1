@@ -10,6 +10,7 @@ import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
 
 const Header = ({ theme, toggleThemeAction }) => {
   const handleToggleTheme = () => {
+    localStorage.setItem("currentTheme", theme);
     toggleThemeAction();
   };
   return (

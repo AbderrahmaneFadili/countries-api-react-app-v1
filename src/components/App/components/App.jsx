@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Details from "../../../pages/Details/Details";
 import Home from "../../../pages/Home/Home";
@@ -8,9 +8,18 @@ import GlobalStyle from "../../../themes/GlobalStyles";
 import Header from "../../Header";
 
 const App = ({ theme }) => {
+  const [currentTheme, setCurrentTheme] = useState(theme);
+  useEffect(() => {
+    console.log(localStorage.getItem("currentTheme"));
+    if (localStorage.getItem("currentTheme") !== null) {
+      setCurrentTheme(localStorage.getItem("currentTheme"));
+    } else {
+      setCurrentTheme(theme);
+    }
+  }, [theme]);
   return (
     <Router>
-      <ThemeProvider theme={theme === "light" ? light : dark}>
+      <ThemeProvider theme={currentTheme === "light" ? light : dark}>
         <GlobalStyle />
         <Header />
         <Switch>
