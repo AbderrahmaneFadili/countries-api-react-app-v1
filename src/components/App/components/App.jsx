@@ -10,11 +10,9 @@ import Header from "../../Header";
 const App = ({ theme }) => {
   const [currentTheme, setCurrentTheme] = useState(theme);
   useEffect(() => {
-    console.log(localStorage.getItem("currentTheme"));
+    //check if the current theme in the localStorage
     if (localStorage.getItem("currentTheme") !== null) {
       setCurrentTheme(localStorage.getItem("currentTheme"));
-    } else {
-      setCurrentTheme(theme);
     }
   }, [theme]);
   return (

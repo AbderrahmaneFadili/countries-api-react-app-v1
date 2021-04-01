@@ -10,7 +10,8 @@ import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
 
 const Header = ({ theme, toggleThemeAction }) => {
   const handleToggleTheme = () => {
-    localStorage.setItem("currentTheme", theme);
+    //Storing the new Theme in LocalStorage
+    localStorage.setItem("currentTheme", theme === "light" ? "dark" : "light");
     toggleThemeAction();
   };
   return (
@@ -20,7 +21,8 @@ const Header = ({ theme, toggleThemeAction }) => {
           <HeaderTitle>Where in the world?</HeaderTitle>
 
           <ToggleTitle onClick={handleToggleTheme}>
-            {theme === "light" ? (
+            {localStorage.getItem("currentTheme") === "light" ||
+            localStorage.getItem("currentTheme") === null ? (
               <IoMoonOutline
                 size={22}
                 style={{ top: 4, right: 6, position: "relative" }}

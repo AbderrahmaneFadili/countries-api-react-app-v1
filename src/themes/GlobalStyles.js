@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     body{
         background-color:${({ theme }) => theme.bodyBackground};
         color:${({ theme }) => theme.text};
-        transition:all .4s;
+        transition:all .2s;
     }
 `;
 
