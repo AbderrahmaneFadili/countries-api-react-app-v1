@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BsArrowLeft } from "react-icons/bs";
 
-export const Button = styled.button`
+export const Button = styled.a`
   padding: 1rem 2.4rem;
   background-color: ${({ theme }) => theme.elements};
   border-radius: 0.4rem;
