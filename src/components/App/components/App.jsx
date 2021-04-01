@@ -18,17 +18,19 @@ const App = ({ theme }) => {
   return (
     <Router>
       <ThemeProvider theme={currentTheme === "light" ? light : dark}>
-        <GlobalStyle />
-        <Header />
-        <Switch>
-          <Route exact path="/details/:name">
-            <Details />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route component={() => <h1>Page not found (404)</h1>} />
-        </Switch>
+        <>
+          <GlobalStyle />
+          <Header />
+          <Switch>
+            <Route exact path="/details/:name">
+              <Details />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route component={() => <h1>Page not found (404)</h1>} />
+          </Switch>
+        </>
       </ThemeProvider>
     </Router>
   );
