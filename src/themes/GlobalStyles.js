@@ -34,4 +34,12 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
+export const Loading = styled.div`
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 export default GlobalStyle;

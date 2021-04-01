@@ -8,6 +8,9 @@ import {
   FETCH_COUNTRIES_BY_REGION_BEGIN,
   FETCH_COUNTRIES_BY_REGION_FAILURE,
   FETCH_COUNTRIES_BY_REGION_SUCCESS,
+  FETCH_COUNTRY_BY_NAME_BEGIN,
+  FETCH_COUNTRY_BY_NAME_FAILURE,
+  FETCH_COUNTRY_BY_NAME_SUCCESS,
 } from "../types/Countries";
 
 //fetch all Countries Begin
@@ -89,4 +92,30 @@ export const fetchCountriesByRegion = (region) => (dispatch) => {
     .then((resp) => resp.json())
     .then((value) => dispatch(fetchCountriesByRegionSuccess(value)))
     .catch((error) => dispatch(fetchCountriesByRegionFailure(error)));
+};
+
+//fetch country by name begin
+export const fetchCountryByNameBegin = () => ({
+  type: FETCH_COUNTRY_BY_NAME_BEGIN,
+});
+
+//fetch country by name success
+export const fetchCountryByNameSuccess = (payload) => ({
+  type: FETCH_COUNTRY_BY_NAME_SUCCESS,
+  payload,
+});
+
+//fetch country by name failure
+export const fetchCountryByNameFailure = (payload) => ({
+  type: FETCH_COUNTRY_BY_NAME_FAILURE,
+  payload,
+});
+
+//fetch country by name
+export const fetchCountryByName = (name) => (dispatch) => {
+  dispatch(fetchCountryByNameBegin());
+  fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+    .then((resp) => resp.json())
+    .then((value) => dispatch(fetchCountryByNameSuccess(value)))
+    .catch((error) => dispatch(fetchCountryByNameFailure(error)));
 };

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Container } from "../../../themes/GlobalStyles";
-import { CountriesContainer, Loading } from "./Countries.styles";
+import { Container, Loading } from "../../../themes/GlobalStyles";
+import { CountriesContainer } from "./Countries.styles";
 import CountryCard from "./CountryCard";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useTheme } from "styled-components";

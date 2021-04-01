@@ -17,6 +17,10 @@ export const Button = styled.button`
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const LeftArrow = styled(BsArrowLeft)`

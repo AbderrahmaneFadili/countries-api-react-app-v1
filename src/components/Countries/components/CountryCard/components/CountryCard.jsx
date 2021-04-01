@@ -15,7 +15,7 @@ const CountryCard = ({ name, alpha2Code, population, region, capital }) => {
   const formatedPopulation = numeral(population).format("0,0");
 
   return (
-    <ContryCardConatiner to={`/details/${name}`}>
+    <ContryCardConatiner to={"/details/" + name}>
       <CountryImage
         src={`https://raw.githubusercontent.com/hampusborgos/country-flags/master/png1000px/${alpha2Code.toLowerCase()}.png`}
         alt="Flag"

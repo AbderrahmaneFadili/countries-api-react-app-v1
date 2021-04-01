@@ -12,11 +12,3 @@ export const CountriesContainer = styled.section`
     align-items: flex-start;
   }
 `;
-
-export const Loading = styled.div`
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
