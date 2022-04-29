@@ -25,19 +25,19 @@ const DropDown = ({ fetchCountriesByRegion }) => {
       <DropDownTitle>{dropDownTitle || "Filter By Region"}</DropDownTitle>
       <ArrowDown />
       <DropDownMenu toggleDropDown={toggleDropDown}>
-        <DropDownItem onClick={() => setDropDownTitle("Africa")}>
+        <DropDownItem onClick={() => setDropDownTitle("africa")}>
           Africa
         </DropDownItem>
-        <DropDownItem onClick={() => setDropDownTitle("Americas")}>
+        <DropDownItem onClick={() => setDropDownTitle("americas")}>
           Americas
         </DropDownItem>
-        <DropDownItem onClick={() => setDropDownTitle("Asia")}>
+        <DropDownItem onClick={() => setDropDownTitle("asia")}>
           Asia
         </DropDownItem>
-        <DropDownItem onClick={() => setDropDownTitle("Europe")}>
+        <DropDownItem onClick={() => setDropDownTitle("europe")}>
           Europe
         </DropDownItem>
-        <DropDownItem onClick={() => setDropDownTitle("Oceania")}>
+        <DropDownItem onClick={() => setDropDownTitle("oceania")}>
           Oceania
         </DropDownItem>
       </DropDownMenu>

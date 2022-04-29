@@ -34,9 +34,12 @@ export const fetchCountriesFailure = (payload) => ({
 
 export const fetchCountries = () => (dispatch) => {
   dispatch(fetchCountriesBegin());
-  fetch(`https://restcountries.eu/rest/v2/all`)
+  fetch(`https://restcountries.com/v2/all`)
     .then((res) => res.json())
-    .then((value) => dispatch(fetchCountriesSuccess(value)))
+    .then((value) => {
+      console.log(value);
+      dispatch(fetchCountriesSuccess(value));
+    })
     .catch((error) => dispatch(fetchCountriesFailure(error)));
 };
 
@@ -60,8 +63,7 @@ export const fetchByNameFailure = (payload) => ({
 //fetch by name
 export const fetchByName = (name) => (dispatch) => {
   dispatch(fetchByNameBegin());
-  fetch(`
-https://restcountries.eu/rest/v2/name/${name}`)
+  fetch(`https://restcountries.com/v2/name/${name}`)
     .then((res) => res.json())
     .then((value) => dispatch(fetchByNameSuccess(value)))
     .catch((error) => dispatch(fetchByNameFailure(error)));
@@ -86,11 +88,13 @@ export const fetchCountriesByRegionFailure = (payload) => ({
 
 //fetch countries by region
 export const fetchCountriesByRegion = (region) => (dispatch) => {
-  console.log(`https://restcountries.eu/rest/v2/region/${region}`);
   dispatch(fetchCountriesByRegionBegin());
-  fetch(`https://restcountries.eu/rest/v2/region/${region}`)
+  fetch(`https://restcountries.com/v3.1/region/${region}`)
     .then((resp) => resp.json())
-    .then((value) => dispatch(fetchCountriesByRegionSuccess(value)))
+    .then((value) => {
+      console.log(value);
+      dispatch(fetchCountriesByRegionSuccess(value));
+    })
     .catch((error) => dispatch(fetchCountriesByRegionFailure(error)));
 };
 
@@ -114,7 +118,7 @@ export const fetchCountryByNameFailure = (payload) => ({
 //fetch country by name
 export const fetchCountryByName = (name) => (dispatch) => {
   dispatch(fetchCountryByNameBegin());
-  fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+  fetch(`https://restcountries.com/v3.1/name/${name}`)
     .then((resp) => resp.json())
     .then((value) => dispatch(fetchCountryByNameSuccess(value)))
     .catch((error) => dispatch(fetchCountryByNameFailure(error)));

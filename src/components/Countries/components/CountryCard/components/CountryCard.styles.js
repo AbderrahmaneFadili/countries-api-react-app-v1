@@ -14,10 +14,14 @@ export const ContryCardConatiner = styled(Link)`
   text-decoration: none;
   color: inherit;
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   /* Media for Tablette */
   @media screen and (min-width: 662px) {
     width: 45%;
-    margin: 0 0 4rem 0;
+    margin: 1rem;
   }
 
   /* Media for Tablette */

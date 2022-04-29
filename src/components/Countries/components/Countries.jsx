@@ -22,7 +22,15 @@ const Countries = ({ fetchCountries, loading, countries }) => {
         )}
         {countries.length > 0 &&
           countries.map((country, i) => (
-            <CountryCard key={i.toString()} {...country} />
+            <CountryCard
+              key={i.toString()}
+              name={country?.name}
+              alpha2Code={country?.alpha2Code}
+              population={country?.population}
+              region={country?.region}
+              capital={country?.capital}
+              cca2={country?.cca2}
+            />
           ))}
       </CountriesContainer>
     </Container>

@@ -35,7 +35,7 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
     fetchCountryByName(name);
   }, []);
 
-  const getBorders = () => {
+  const getBorders = (country) => {
     const borderNames = [];
     countriesNames.forEach((c) => {
       country.borders.forEach((b) => {
@@ -44,6 +44,7 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
         }
       });
     });
+
     return borderNames;
   };
 
@@ -58,7 +59,7 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
         <CountryInfoContainer>
           {/* Country info Col left */}
           <CountryInfoCol>
-            <CountryImage src={country.flag} alt="Flag" />
+            <CountryImage src={country.flags.png} alt="Flag" />
           </CountryInfoCol>
 
           {/* Country info Col right */}
@@ -72,7 +73,7 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
                 <CountryContentCol>
                   <CountryContentInfo>
                     <Label>Native Name:</Label>{" "}
-                    <Info>{country.nativeName}</Info>
+                    <Info>{country.name.common}</Info>
                   </CountryContentInfo>
 
                   <CountryContentInfo>
@@ -89,7 +90,8 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
                   </CountryContentInfo>
 
                   <CountryContentInfo>
-                    <Label>Capital:</Label> <Info>{country.capital}</Info>
+                    <Label>Capital:</Label>{" "}
+                    <Info>{country.capital.map((c) => c).join(" ,")}</Info>
                   </CountryContentInfo>
                 </CountryContentCol>
 
@@ -102,14 +104,23 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
                   <CountryContentInfo>
                     <Label>Currencies:</Label>{" "}
                     <Info>
-                      {country.currencies.map((c) => c.name).join(" ,")}
+                      {Object.values(country.currencies)
+                        .map((c) => {
+                          return c.name;
+                        })
+                        .join(" ,")}
                     </Info>
                   </CountryContentInfo>
 
                   <CountryContentInfo>
                     <Label>Languages:</Label>{" "}
                     <Info>
-                      {country.languages.map((l) => l.name).join(" ,")}
+                      {Object.values(country.languages)
+                        .map((l) => {
+                          console.log(l);
+                          return l;
+                        })
+                        .join(" ,")}
                     </Info>
                   </CountryContentInfo>
                 </CountryContentCol>
@@ -117,11 +128,12 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
               {/* Country Borders Container */}
               <Borders>
                 <Label>Border Countries:</Label>
-                <BorderContainer>
-                  {getBorders().map((b, i) => (
-                    <Border key={i.toString()}>{b}</Border>
-                  ))}
-                </BorderContainer>
+                {/* <BorderContainer>
+                  {country.borders !== null &&
+                    getBorders(country).map((b, i) => (
+                      <Border key={i.toString()}>{b}</Border>
+                    ))}
+                </BorderContainer> */}
               </Borders>
             </CountryContent>
           </CountryInfoCol>
