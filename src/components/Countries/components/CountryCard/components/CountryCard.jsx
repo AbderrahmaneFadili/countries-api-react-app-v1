@@ -18,6 +18,7 @@ const CountryCard = ({
   region,
   capital,
   cca2,
+  flags,
 }) => {
   const formatedPopulation = numeral(population).format("0,0");
 
@@ -25,18 +26,8 @@ const CountryCard = ({
     <ContryCardConatiner
       to={`/details/${typeof name === "string" ? name : name.common}`}
     >
-      {alpha2Code && (
-        <CountryImage
-          src={`https://raw.githubusercontent.com/hampusborgos/country-flags/master/png1000px/${alpha2Code.toLowerCase()}.png`}
-          alt="Flag"
-        />
-      )}
-      {cca2 && (
-        <CountryImage
-          src={`https://raw.githubusercontent.com/hampusborgos/country-flags/master/png1000px/${cca2.toLowerCase()}.png`}
-          alt="Flag"
-        />
-      )}
+      {alpha2Code && <CountryImage src={flags.svg} alt="Flag" />}
+      {cca2 && <CountryImage src={flags.svg} alt="Flag" />}
 
       <CountryContent>
         {typeof name === "string" ? (

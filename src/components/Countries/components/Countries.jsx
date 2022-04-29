@@ -20,9 +20,11 @@ const Countries = ({ fetchCountries, loading, countries }) => {
             <ClipLoader size={70} color={theme.text} />
           </Loading>
         )}
-        {countries.length > 0 &&
+        {countries &&
+          countries.length > 0 &&
           countries.map((country, i) => (
             <CountryCard
+              flags={country?.flags}
               key={i.toString()}
               name={country?.name}
               alpha2Code={country?.alpha2Code}

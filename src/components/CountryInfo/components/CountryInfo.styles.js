@@ -10,7 +10,7 @@ export const CountryInfoContainer = styled.section`
 
 //Counrty Info Col
 export const CountryInfoCol = styled.div`
-  width: 45%;
+  width: 48%;
 
   @media screen and (max-width: 768px) {
     width: 100%;

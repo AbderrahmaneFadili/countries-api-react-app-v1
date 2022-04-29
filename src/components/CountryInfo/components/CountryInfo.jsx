@@ -24,6 +24,7 @@ import {
 import { countriesNames } from "../CountriesNames/countriesNames";
 
 const CountryInfo = ({ fetchCountryByName, country, loading }) => {
+  console.log(country);
   //getting the name from the params
   const { name } = useParams();
 
@@ -59,21 +60,25 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
         <CountryInfoContainer>
           {/* Country info Col left */}
           <CountryInfoCol>
-            <CountryImage src={country.flags.png} alt="Flag" />
+            <CountryImage src={country.flags.svg} alt="Flag" />
           </CountryInfoCol>
 
           {/* Country info Col right */}
           <CountryInfoCol>
             {/* Country Content */}
             <CountryContent>
-              <CounryName>{country.name}</CounryName>
+              <CounryName>{country.name.common}</CounryName>
 
               {/* Country Content Container */}
               <CountryContentContainer>
                 <CountryContentCol>
                   <CountryContentInfo>
                     <Label>Native Name:</Label>{" "}
-                    <Info>{country.name.common}</Info>
+                    <Info>
+                      {Object.values(country.name.nativeName)
+                        .map((ntv) => ntv.official)
+                        .join(" - ")}
+                    </Info>
                   </CountryContentInfo>
 
                   <CountryContentInfo>
@@ -91,7 +96,7 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
 
                   <CountryContentInfo>
                     <Label>Capital:</Label>{" "}
-                    <Info>{country.capital.map((c) => c).join(" ,")}</Info>
+                    <Info>{country.capital.map((c) => c).join(",")}</Info>
                   </CountryContentInfo>
                 </CountryContentCol>
 
@@ -108,7 +113,7 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
                         .map((c) => {
                           return c.name;
                         })
-                        .join(" ,")}
+                        .join(",")}
                     </Info>
                   </CountryContentInfo>
 
@@ -117,10 +122,9 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
                     <Info>
                       {Object.values(country.languages)
                         .map((l) => {
-                          console.log(l);
                           return l;
                         })
-                        .join(" ,")}
+                        .join(",")}
                     </Info>
                   </CountryContentInfo>
                 </CountryContentCol>
@@ -128,12 +132,12 @@ const CountryInfo = ({ fetchCountryByName, country, loading }) => {
               {/* Country Borders Container */}
               <Borders>
                 <Label>Border Countries:</Label>
-                {/* <BorderContainer>
-                  {country.borders !== null &&
+                <BorderContainer>
+                  {country.borders &&
                     getBorders(country).map((b, i) => (
                       <Border key={i.toString()}>{b}</Border>
                     ))}
-                </BorderContainer> */}
+                </BorderContainer>
               </Borders>
             </CountryContent>
           </CountryInfoCol>
