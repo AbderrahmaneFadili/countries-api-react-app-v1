@@ -16,7 +16,6 @@ const DropDown = ({ fetchCountriesByRegion }) => {
 
   useEffect(() => {
     if (dropDownTitle) {
-      console.log(dropDownTitle);
       fetchCountriesByRegion(dropDownTitle.toLocaleLowerCase());
     }
   }, [dropDownTitle]);

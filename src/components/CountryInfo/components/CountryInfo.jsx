@@ -24,7 +24,6 @@ import {
 import { countriesNames } from "../CountriesNames/countriesNames";
 
 const CountryInfo = ({ fetchCountryByName, country, loading }) => {
-  console.log(country);
   //getting the name from the params
   const { name } = useParams();
 

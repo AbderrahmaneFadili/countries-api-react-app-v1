@@ -37,7 +37,6 @@ export const fetchCountries = () => (dispatch) => {
   fetch(`https://restcountries.com/v2/all`)
     .then((res) => res.json())
     .then((value) => {
-      console.log(value);
       dispatch(fetchCountriesSuccess(value));
     })
     .catch((error) => dispatch(fetchCountriesFailure(error)));
@@ -92,7 +91,6 @@ export const fetchCountriesByRegion = (region) => (dispatch) => {
   fetch(`https://restcountries.com/v3.1/region/${region}`)
     .then((resp) => resp.json())
     .then((value) => {
-      console.log(value);
       dispatch(fetchCountriesByRegionSuccess(value));
     })
     .catch((error) => dispatch(fetchCountriesByRegionFailure(error)));
