@@ -20,7 +20,7 @@ export const CountryInfoCol = styled.div`
 //Coounry image
 export const CountryImage = styled.img`
   width: 100%;
-  height: 100%;
+  max-height: 100%;
 `;
 
 //Country Content
