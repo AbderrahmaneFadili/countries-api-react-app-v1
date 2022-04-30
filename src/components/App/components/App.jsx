@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Details from "../../../pages/Details/Details";
 import Home from "../../../pages/Home/Home";
+import PageNotFound from "../../../pages/PageNotFound/PageNotFound";
 import { ThemeProvider } from "styled-components";
 import { light, dark } from "../../../themes/themes";
 import GlobalStyle from "../../../themes/GlobalStyles";
@@ -27,7 +28,7 @@ const App = ({ theme }) => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route component={() => <h1>Page not found (404)</h1>} />
+          <Route component={PageNotFound} />
         </Switch>
       </ThemeProvider>
     </Router>
