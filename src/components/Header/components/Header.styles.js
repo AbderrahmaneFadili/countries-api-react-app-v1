@@ -22,6 +22,7 @@ export const HeaderContainer = styled.div`
 //Header Title
 export const HeaderTitle = styled.h1`
   font-size: 1.5rem;
+  cursor: pointer;
 `;
 
 //ToggleTitle

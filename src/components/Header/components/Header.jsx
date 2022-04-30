@@ -7,6 +7,7 @@ import {
   ToggleTitle,
 } from "./Header.styles";
 import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
+import { useHistory } from "react-router-dom";
 
 const Header = ({ theme, toggleThemeAction }) => {
   const handleToggleTheme = () => {
@@ -14,11 +15,19 @@ const Header = ({ theme, toggleThemeAction }) => {
     localStorage.setItem("currentTheme", theme === "light" ? "dark" : "light");
     toggleThemeAction();
   };
+
+  const history = useHistory();
+
+  const redirectToHome = (event) => {
+    history.push("/");
+  };
   return (
     <MainHeader>
       <Container>
         <HeaderContainer>
-          <HeaderTitle>Where in the world?</HeaderTitle>
+          <HeaderTitle onClick={redirectToHome}>
+            Where in the world?
+          </HeaderTitle>
 
           <ToggleTitle onClick={handleToggleTheme}>
             {localStorage.getItem("currentTheme") === "light" ||
